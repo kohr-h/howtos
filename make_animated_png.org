@@ -1,0 +1,48 @@
+#+TITLE: How to create an animated PNG file in Python
+#+DATE: [2018-05-04 Fri]
+#+AUTHOR: Holger Kohr
+#+LANGUAGE: en
+#+OPTIONS: ':t toc:nil
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [landscape]
+#+LATEX_HEADER: \usepackage[hscale=0.9,vscale=0.9]{geometry}
+#+LATEX_HEADER: \setcounter{secnumdepth}{0}
+#+LATEX_HEADER: \pagestyle{empty}
+#+LATEX_HEADER_EXTRA:
+#+DESCRIPTION: Instructions for creating an animated PNG file from a collection of PNG files in Python.
+#+KEYWORDS:
+#+SUBTITLE:
+#+LATEX_COMPILER: pdflatex
+
+* Setup
+
+Install the ~apng~ package, either ~pip install apng~ or [[https://github.com/eight04/pyAPNG][from source]].
+Note that it requires ~pillow~ to save files -- without it, only reading is supported, which is kind of pointless.
+
+* Usage (quick version)
+#+BEGIN_SRC python
+from apng import APNG
+import glob
+image_files = glob.glob('*.png')
+APNG.from_files(image_files, delay=100).save('anim.png')  # delay is in ms
+#+END_SRC
+
+* Usage (fine-grained version)
+
+#+BEGIN_SRC python
+from apng import APNG
+import glob
+
+anim = APNG()
+image_files = glob.glob('*.png')
+delays = [100] * len(image_files)  # per-frame delay
+delays[-1] = 1000  # 1 second pause at the end, for cycling
+for file, delay in zip(image_files, delays):
+    anim.append(file, delay=delay)
+
+anim.save('anim.png')
+#+END_SRC
+
+* Resources
+- [[https://github.com/eight04/pyAPNG#usage][Usage examples]]
+- [[http://pyapng.readthedocs.io/en/latest/][API documentation]]
