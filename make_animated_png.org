@@ -30,7 +30,7 @@ APNG.from_files(image_files, delay=100).save('anim.png')  # delay is in ms
 * Usage (fine-grained version)
 
 #+BEGIN_SRC python
-from apng import APNG
+from apng import APNG, PNG
 import glob
 
 anim = APNG()
@@ -38,7 +38,7 @@ image_files = glob.glob('*.png')
 delays = [100] * len(image_files)  # per-frame delay
 delays[-1] = 1000  # 1 second pause at the end, for cycling
 for file, delay in zip(image_files, delays):
-    anim.append(file, delay=delay)
+    anim.append(PNG.open(file), delay=delay)
 
 anim.save('anim.png')
 #+END_SRC
