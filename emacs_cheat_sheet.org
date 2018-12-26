@@ -1,0 +1,170 @@
+#+TITLE: Emacs cheat sheet
+#+AUTHOR: Holger Kohr
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [landscape, twocolumn]
+#+LATEX_HEADER: \setcounter{secnumdepth}{0}
+#+LATEX_HEADER: \pagestyle{empty}
+#+LATEX_HEADER: \usepackage{siunitx}
+#+LATEX_HEADER_EXTRA:
+#+DATE:
+#+OPTIONS: toc:nil
+
+* Windows and buffers
+
+#+ATTR_LATEX: :center nil :align lp{10cm}r|lp{4cm}
+| <60>                                                         | <24>                     |
+| Switch to "other" window                                     | ~C-x o~                  |
+| Close current window                                         | ~C-x 0~                  |
+| Maximize current window (close others)                       | ~C-x 1~                  |
+| Split window vertically                                      | ~C-x 2~                  |
+| Split window horizontally                                    | ~C-x 3~                  |
+| Kill buffer                                                  | ~C-x k~                  |
+
+* Navigation
+
+#+ATTR_LATEX: :center nil :align lp{10cm}r|lp{4cm}
+| <60>                                                         | <24>                     |
+| Go to line start (smart)                                     | ~C-a~                    |
+| Go to line end                                               | ~C-e~                    |
+| Cursor forward                                               | ~C-f~                    |
+| Cursor backward                                              | ~C-b~                    |
+| Cursor to next line                                          | ~C-n~                    |
+| Cursor to previous line                                      | ~C-p~                    |
+| Go to beginning of buffer                                    | ~M-<~                    |
+| Go to end of buffer                                          | ~M->~                    |
+
+* Editing
+
+#+ATTR_LATEX: :center nil :align lp{10cm}r|lp{4cm}
+| <60>                                                         | <24>                     |
+| Kill until line end (excluding the newline)                  | ~C-k~                    |
+| Yank (insert)                                                | ~C-y~                    |
+| Invoke kill ring mini-buffer                                 | ~M-y~                    |
+| Undo                                                         | ~C-_~                    |
+| Capitalize word (from cursor, +advance)                      | ~M-c~                    |
+| Make word uppercase (from cursor, +advance)                  | ~M-u~                    |
+| Make word lowercase (from cursor, +advance)                  | ~M-l~                    |
+| Open file                                                    | ~C-x C-f~                |
+| Save file                                                    | ~C-x C-s~                |
+| Save file as                                                 | ~C-x C-w~                |
+| Query replace                                                | ~M-%~                    |
+| Kill rectangle between region markers                        | ~C-x r k~                |
+| Yank rectangle between region markers                        | ~C-x r y~                |
+| Copy rectangle between region markers                        | ~C-x r r~                |
+| Insert string in rectangle between region markers            | ~C-x r t~                |
+
+#+LATEX: \newpage
+* Org-mode
+** Meta-commands
+
+#+ATTR_LATEX: :center nil :align lp{10cm}r|lp{4cm}
+| <60>                                                         | <24>                     |
+| Just about anything in Org-mode                              | ~C-c~                    |
+| Export dialog                                                | ~C-c C-e~                |
+| Agenda dialog                                                | ~C-c a~                  |
+
+** Navigation
+
+#+ATTR_LATEX: :center nil :align lp{10cm}r|lp{4cm}
+| <60>                                                         | <24>                     |
+| Jump to next heading (same level)                            | ~C-c C-f~                |
+| Jump to previous heading (same level)                        | ~C-c C-b~                |
+| Jump to next heading (any level)                             | ~C-c C-n~                |
+| Jump to previous heading (any level)                         | ~C-c C-p~                |
+
+** Document structure (headings, TODOs)
+
+#+ATTR_LATEX: :center nil :align lp{10cm}r|lp{4cm}
+| <60>                                                         | <24>                     |
+| Insert heading                                               | ~C-RET~                  |
+| Insert TODO heading (current level, just before next)        | ~M-S-RET~                |
+| Insert TODO heading (current level, just after current)      | ~C-S-RET~                |
+| Cycle TODO status                                            | ~C-c C-t~ / ~S-RIGHT~    |
+| Archive (TODO) subtree                                       | ~C-c C-x C-a~            |
+| Insert check box item in *itemize list*                      | ~M-S-RET~                |
+| Move subtree up, swapping with subtree above                 | ~M-UP~                   |
+| Move subtree down, swapping with subtree below               | ~M-DOWN~                 |
+| Promote heading one level                                    | ~M-RIGHT~                |
+| Demote heading one level                                     | ~M-LEFT~                 |
+| Promote subtree one level                                    | ~M-S-RIGHT~              |
+| Demote subtree one level                                     | ~M-S-LEFT~               |
+| Cycle subtree visibility                                     | ~TAB~                    |
+| Cycle subtree visibility globally                            | ~S-TAB~                  |
+| Mark current heading (repeat adds further)                   | ~M-h~                    |
+| Mark current subtree (repeat adds further in same level)     | ~C-c @~                  |
+| Toggle LaTeX fragment                                        | ~C-c C-x C-l~            |
+
+** Timestamps and Agenda
+
+#+ATTR_LATEX: :center nil :align lp{10cm}r|lp{4cm}
+| <60>                                                         | <24>                     |
+| Create timestamp (today, active)                             | ~C-c .~                  |
+| Create timestamp (today, inactive)                           | ~C-c !~                  |
+| Fix timestamp                                                | ~C-c C-c~                |
+| Open calendar                                                | ~C-c >~                  |
+| Insert current date from calendar                            | ~C-c <~                  |
+| Increase timestamp by 1 day                                  | ~S-RIGHT~                |
+| Decrease timestamp by 1 day                                  | ~S-LEFT~                 |
+| Increase timestamp by 1 unit under cursor                    | ~S-UP~                   |
+| Decrease timestamp by 1 unit under cursor                    | ~S-DOWN~                 |
+| Open agenda selection buffer                                 | ~C-c a~                  |
+| Add TODO deadline                                            | ~C-c C-d~                |
+
+** Links
+
+#+ATTR_LATEX: :center nil :align lp{10cm}r|lp{4cm}
+| <60>                                                         | <24>                     |
+| Store link to current heading                                | ~C-c l~                  |
+| Create link (using a dialog)                                 | ~C-c C-l~                |
+| Create link to external file                                 | ~C-u C-c C-l~            |
+
+** Tables
+
+#+ATTR_LATEX: :center nil :align lp{10cm}r|lp{4cm}
+| <60>                                                         | <24>                     |
+| Move to next column (+re-align)                              | ~TAB~                    |
+| Move to previous column (+re-align)                          | ~S-TAB~                  |
+| Move to next row within column (+re-align)                   | ~RET~                    |
+| Re-align table w/o cursor movement                           | ~C-c C-c~                |
+| Move whole row/column                                        | ~M-<ARROW>~              |
+| Insert row/column at current position                        | ~M-S-[DOWN/RIGHT]~       |
+| Delete row/column at current position                        | ~M-S-[UP/LEFT]~          |
+| Copy value down in column                                    | ~S-RET~                  |
+| Query table position and references                          | ~C-c ?~                  |
+| Table creation wizard                                        | ~C-c~ @@latex:$\mathtt{\vert}$@@ |
+
+** Exporting
+
+#+ATTR_LATEX: :center nil :align lp{10cm}r|lp{4cm}
+| <60>                                                         | <24>                     |
+| **Export meta-command**                                      | ~C-c C-e~                |
+| Export to LaTeX and open                                     | ~C-c C-e l o~            |
+| Insert header group (e.g. LaTeX)                             | ~C-c C-e #~              |
+|                                                              |                          |
+
+* Git
+#+ATTR_LATEX: :center nil :align lp{10cm}r|lp{4cm}
+| <60>                                                         | <24>                     |
+| Open a git status window                                     | ~M-m g s~                |
+| *Commands in the Magit status buffer*                        |                          |
+| Refresh                                                      | ~g~                      |
+| Stage                                                        | ~s~                      |
+| Commit meta-command                                          | ~c~                      |
+| Commit (enter message editor)                                | ~c c~                    |
+| Amend commit                                                 | ~c a~                    |
+| File: expand/collapse diff                                   | ~TAB~                    |
+
+
+* LaTeX mode
+
+#+ATTR_LATEX: :center nil :align lp{10cm}r|lp{4cm}
+| <60>                                                         | <24>                     |
+| Compile all and open                                         | ~M-RET a~                |
+| Compile region                                               | ~C-c C-r~                |
+| View result (of last compilation?)                           | ~M-RET v~                |
+| Close environment                                            | ~M-RET c~                |
+| Insert label                                                 | ~C-c (~                  |
+| Insert ref                                                   | ~C-c )~                  |
+| Insert environment (opening a selection menu)                | ~C-c C-e~                |
+| Change environment (opening a selection menu)                | ~C-u C-c C-e~            |
+| Insert section                                               | ~C-c C-s~                |
